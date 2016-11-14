@@ -1,0 +1,17 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:editing_supplier) %>
+<% end %>
+
+<div data-hook="admin_supplier_edit_form_header">
+  <%= render :partial => 'spree/admin/shared/error_messages', :locals => { :target => @supplier } %>
+</div>
+
+<div data-hook="admin_supplier_edit_form">
+  <%= form_for [:admin, @supplier] do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+
+    <div data-hook="admin_supplier_edit_form_buttons">
+      <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+    </div>
+  <% end %>
+</div>

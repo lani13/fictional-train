@@ -1,0 +1,54 @@
+<div data-hook="admin_supplier_form_fields" class="row">
+
+  <div class="col-md-6">
+
+  <div data-hook="admin_supplier_form_password_fields" class="">
+    <%= f.field_container :name, class: ['form-group'] do %>
+      <%= f.label :name, Spree.t(:supplier_name) %>
+      <%= f.text_field :name, :class => 'form-control' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+  </div>
+
+  <div data-hook="admin_supplier_form_street_fields" class="">
+    <%= f.field_container :street, class: ['form-group'] do %>
+      <%= f.label :street, Spree.t(:supplier_street) %>
+      <%= f.text_field :street, :class => 'form-control' %>
+      <%= f.error_message_on :street %>
+    <% end %>
+  </div>
+
+  <div data-hook="admin_supplier_form_city_fields" class="">
+    <%= f.field_container :city, class: ['form-group'] do %>
+      <%= f.label :name, Spree.t(:supplier_city) %>
+      <%= f.text_field :city, :class => 'form-control' %>
+      <%= f.error_message_on :city %>
+    <% end %>
+  </div>
+    
+  <div data-hook="admin_supplier_form_zip_code_fields" class="">
+    <%= f.field_container :zip_code, class: ['form-group'] do %>
+      <%= f.label :zip_code, Spree.t(:supplier_zip_code) %>
+      <%= f.text_field :zip_code, :class => 'form-control' %>
+      <%= f.error_message_on :zip_code %>
+    <% end %>
+  </div>
+  
+  <div data-hook="admin_supplier_form_nip_fields" class="">
+    <%= f.field_container :nip, class: ['form-group'] do %>
+      <%= f.label :nip, Spree.t(:supplier_nip) %>
+      <%= f.text_field :nip, :class => 'form-control' %>
+      <%= f.error_message_on :nip %>
+    <% end %>
+  </div>
+      
+  <div data-hook="admin_supplier_form_regon_fields" class="">
+    <%= f.field_container :regon, class: ['form-group'] do %>
+      <%= f.label :regon, Spree.t(:supplier_regon) %>
+      <%= f.text_field :regon, :class => 'form-control' %>
+      <%= f.error_message_on :regon %>
+    <% end %>   
+  </div>
+ 
+ </div> 
+</div>

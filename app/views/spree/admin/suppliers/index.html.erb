@@ -1,0 +1,42 @@
+<% content_for :page_title do %>
+  <%= plural_resource_name(Spree::Supplier) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_supplier), new_object_url, { :class => "btn-success", :icon => 'add', :id => 'admin_new_supplier' } %>
+<% end if can?(:create, Spree::Product) %>
+
+<% if @collection.any? %>
+  <table class="table" id="listing_suppliers">
+            <th class=""><%= Spree.t(:supplier_name) rescue '' %></th>
+            <th class=""><%= Spree.t(:supplier_street) rescue '' %></th>
+            <th class=""><%= Spree.t(:supplier_city) rescue '' %></th>
+            <th class=""><%= Spree.t(:supplier_zip_code) rescue '' %></th>
+            <th class=""><%= Spree.t(:supplier_nip) rescue '' %></th>
+            <th class=""><%= Spree.t(:supplier_regon) rescue '' %></th>
+            <th class=""></td>
+    <tbody>
+      <% @collection.each do |supplier| %>
+          <tr id="<%= spree_dom_id supplier %>" data-hook="suppliers_index_rows" class="<%= cycle('odd', 'even') %>">
+            <td class=""><%= supplier.name rescue '' %></td>
+            <td class=""><%= supplier.street rescue '' %></td>
+            <td class=""><%= supplier.city rescue '' %></td>
+            <td class=""><%= supplier.zip_code rescue '' %></td>
+            <td class=""><%= supplier.nip rescue '' %></td>
+            <td class=""><%= supplier.regon rescue '' %></td>
+            <td class="actions actions-3 text-right" data-hook="suppliers_index_row_actions">
+              <%= link_to_edit supplier, no_text: true, class: 'edit' if can?(:edit, supplier) %>
+              <%= link_to_delete supplier, no_text: true if can?(:delete, supplier) %>
+            </td>
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: plural_resource_name(Spree::Supplier)) %>,
+    <%= link_to Spree.t(:add_one), new_object_url %>!
+  </div>
+<% end %>
+
+

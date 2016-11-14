@@ -1,0 +1,32 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:order_costs) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= link_to_with_icon 'arrow-left', Spree.t(:back_to_resource_list, resource: Spree.t(:report)), spree.admin_reports_url, class: 'btn btn-default' %>
+<% end %>
+
+<div class="well">
+  <%= render :partial => 'spree/admin/shared/report_order_criteria' %>
+</div>
+
+<table class="table table-bordered admin-report" data-hook="order_costs">
+  <thead>
+    <tr>
+      <th><%= Spree.t(:currency) %></th>
+      <th><%= Spree.t(:order_costs) %></th>
+      <th><%= Spree.t(:tax_amount) %></th>
+      <th><%= Spree.t(:sales_total) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @totals.each do |key, row| %>
+      <tr>
+        <td><%= key %></td>
+        <td><%= row[:order_costs] %></td>
+        <td><%= row[:tax_amount].format %></td>
+        <td><%= row[:sales_total].format %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

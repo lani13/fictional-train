@@ -1,0 +1,11 @@
+<div data-hook="admin_supplier_text_field">
+
+    <div id="supplier_name_field" data-hook="admin_product_supplier_text" class="form-group">           
+         <%= f.field_container :supplier, class: ['form-group'] do %>
+          <%= f.label :supplier_id, Spree.t(:supplier_name) %>
+          <%= f.collection_select(:supplier_id, @suppliers, :id, :name, { include_blank: Spree.t('match_choices.none') }, { class: 'select2', disabled: (cannot? :edit, Spree::Supplier) }) %>
+          <%= f.error_message_on :supplier_id %>
+         <% end %>
+    </div>
+    
+</div>
